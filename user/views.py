@@ -4,6 +4,7 @@ from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
 from .forms import *
 # Create your views here.
+# register function
 def userRegister(request):
     if request.method == 'POST':
         # değişken ismi ile tırnak içerisinde olan ismin aynı olması zorunlu değil
