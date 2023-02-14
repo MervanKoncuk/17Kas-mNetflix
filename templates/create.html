@@ -1,0 +1,38 @@
+{% extends "index.html" %}
+{% load static %}
+
+{% block content %}
+<style>
+    .btn-close {
+        z-index: 9999;
+    }
+</style>
+    <div class="container mt-5">
+        <form action="" method="POST" enctype="multipart/form-data" class="w-50 m-auto border text-light p-4">
+            {% csrf_token %}
+            {{form}}
+            <input type="submit" name="olustur" value="Oluştur" class="btn btn-primary">
+        </form>
+
+        <div class="row">
+            {% for profil in profiller %}
+                <div class="col-3 mt-5 mb-5  position-relative">
+                <form action="" method="POST">
+                    {% csrf_token %}
+                    <input type="hidden" name="profileId" value="{{profil.id}}">
+                    <button class="btn-close position-absolute" type="submit" name="sil"></button>
+                </form>
+                
+                <a href="browse-index.html" class="text-decoration-none text-secondary">
+                    <div class="card bg-transparent">
+                        <img src="{{profil.resim.url}}" height="150" class="card-img-top " alt="">
+                        <div>
+                            <h5 class="card-title text-center ">{{profil.isim}}</h5>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock content %}  

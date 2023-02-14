@@ -1,0 +1,21 @@
+{% extends 'index.html' %}
+{% load static %}
+
+{% block content %}
+    <div class="container mt-5">
+        <form action="" method="POST" enctype="multipart/form-data" class="w-50 m-auto border text-light p-4">
+            {% csrf_token %}
+            <!-- <label for="">Kullanıcı Adı</label>
+            <input type="text" name="kullanici" value="{{user.username}}" required id="" class="form-control">
+            <label for="">Email</label>
+            <input type="email" name="email" required value="{{user.email}}" id="" class="form-control">
+            <label for="">Telefon Numarası</label>
+            <input type="number" name="tel" id="" value="{{hesabim.tel}}" required class="form-control">
+            <label for="">Profil Resmi</label>
+            <input type="file" name="resim" id="" required class="form-control"> -->
+            {{form}}
+            {{hesapForm}}
+            <input type="submit" value="Güncelle" class="btn btn-primary mt-2">
+        </form>
+    </div>
+{% endblock content %}
