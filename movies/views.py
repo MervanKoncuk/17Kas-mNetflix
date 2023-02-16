@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .models import *
 from user.models import *
 from django.contrib.auth.models import User
@@ -20,3 +20,6 @@ def movies(request, slug, profilId):
         'profiller':profiller
     }
     return render(request, 'browse-index.html', context)
+
+def view_404(request, exception):
+    return redirect('/')
